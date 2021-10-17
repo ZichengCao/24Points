@@ -1,0 +1,12 @@
+.vs
+Logs
+UserSettings
+Target
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Pp]rojectSettings/ProjectVersion.txt
+
+/Assets/AssetStoreTools*
