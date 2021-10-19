@@ -8,5 +8,6 @@ Target
 /[Bb]uild/
 /[Bb]uilds/
 /[Pp]rojectSettings/ProjectVersion.txt
+Packages/manifest.json
 
 /Assets/AssetStoreTools*
