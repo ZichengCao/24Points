@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using System.Text;
 
-public class GameAdministrator : MonoBehaviour
-{
+public class GameAdministrator : MonoBehaviour {
 
-    private ExpressionCalculator helper = new ExpressionCalculator();
 
     // static resource
     public Sprite[] soundSprite;
@@ -19,15 +19,16 @@ public class GameAdministrator : MonoBehaviour
 
     // dynamic gameobject
     public Image soundImage;
-    public GameObject cardContainer;
-    private Image[] cards = new Image[4]; //selected card
 
+    public GameObject cardContainer;
+    public RectTransform[] buttonsRect;
+    private Image[] cards = new Image[4]; //selected card
+    public Player player;
 
     // ordinary
-    private int[] selectNums = new int[4];
+    public int[] selectNums = new int[4];
 
-    void Start()
-    {
+    void Start() {
         playingCardSpriteList.Add(palyingCardClubSprite);
         playingCardSpriteList.Add(palyingCardDiamondSprite);
         playingCardSpriteList.Add(palyingCardHeartSprite);
@@ -35,34 +36,26 @@ public class GameAdministrator : MonoBehaviour
         generateQuestion();
     }
 
-    public void generateQuestion()
-    {
+    public void generateQuestion() {
         // 如果界面上已存在扑克牌，删除
-        for (int i = 0; i < cards.Length; i++)
-        {
-            if (cards[i] != null && cards[i].gameObject != null)
-            {
+        for (int i = 0; i < cards.Length; i++) {
+            if (cards[i] != null && cards[i].gameObject != null) {
                 Destroy(cards[i].gameObject);
             }
         }
-
-        for (int i = 0; i < 4; i++)
-        {
-            int temp = Random.Range(0, 13);
-            selectNums[i] = temp + 1;
+        QuestionGenerator generator = new QuestionGenerator();
+        List<int> list = generator.build();
+        for (int i = 0; i < 4; i++) {
+            selectNums[i] = list[i] + 1;
             cards[i] = Instantiate(CARD, cardContainer.transform).GetComponent<Image>();
-            cards[i].sprite = playingCardSpriteList[i][temp];
+            cards[i].sprite = playingCardSpriteList[i][list[i]];
         }
     }
 
 
-    public List<string> generateCorrectAnswer()
-    {
-        return null;
-    }
 
-    public bool checkAnswer(string expression)
-    {
+    public bool checkAnswer(string expression) {
+        ExpressionCalculator helper = new ExpressionCalculator();
         int result = helper.calc(expression, selectNums);
         if (result == 24)
             return true;
@@ -70,18 +63,23 @@ public class GameAdministrator : MonoBehaviour
     }
 
     bool muteFlag = false;
-    public void soundSwitch()
-    {
-        if (muteFlag)
-        {
+    public void soundSwitch() {
+        if (muteFlag) {
             soundImage.sprite = soundSprite[0];
             GetComponent<AudioSource>().volume = 0.5f;
-        }
-        else
-        {
+        } else {
             soundImage.sprite = soundSprite[1];
             GetComponent<AudioSource>().volume = 0f;
         }
         muteFlag = !muteFlag;
+    }
+
+    public void buttonMouseIn(int sign) {
+        buttonsRect[sign].DOScale(new Vector3(1.1f, 1.1f, 1f), 0.25f);
+    }
+
+    public void buttonMouseOut(int sign) {
+        buttonsRect[sign].DOScale(new Vector3(1f, 1f, 1f), 0.25f);
+
     }
 }

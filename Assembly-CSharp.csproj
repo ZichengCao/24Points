@@ -55,11 +55,13 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Tools\Tools.cs" />
     <Compile Include="Assets\Script\GameAdministrator.cs" />
-    <Compile Include="Assets\Script\Palyer.cs" />
+    <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Plug-in\DoTween\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+    <Compile Include="Assets\Script\Tools\QuestionAnswerer.cs" />
+    <Compile Include="Assets\Script\Tools\QuestionGenerator.cs" />
     <Compile Include="Assets\Script\Tools\Message.cs" />
     <Compile Include="Assets\Script\Tools\InputFieldScaler.cs" />
     <Compile Include="Assets\Script\Tools\ExpressionCalculator.cs" />
-    <Compile Include="Assets\Plug-in\DoTween\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plug-in\DoTween\Demigiant\DOTween\DOTween43.xml" />
@@ -313,14 +315,14 @@
     <Reference Include="DOTween46">
       <HintPath>Assets\Plug-in\DoTween\Demigiant\DOTween\DOTween46.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween50">
-      <HintPath>Assets\Plug-in\DoTween\Demigiant\DOTween\DOTween50.dll</HintPath>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\Plug-in\DoTween\Demigiant\DOTween\DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Plug-in\DoTween\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween43">
-      <HintPath>Assets\Plug-in\DoTween\Demigiant\DOTween\DOTween43.dll</HintPath>
+    <Reference Include="DOTween50">
+      <HintPath>Assets\Plug-in\DoTween\Demigiant\DOTween\DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>E:\Program Files\Unity\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
