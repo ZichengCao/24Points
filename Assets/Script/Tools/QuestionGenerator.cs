@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class QuestionGenerator {
     static int[,,,] flag = new int[14, 14, 14, 14];
     //Dictionary<string, int> anwserCountDict = new Dictionary<string, int>();
@@ -14,8 +14,9 @@ public class QuestionGenerator {
         //return new List<int> { 3, 3, 6, 6 };
     }
     private void selectNums() {
+        System.Random r = new System.Random();
         for (int i = 0; i < 4; i++) {
-            tempArr[i] = Random.Range(0, 13);
+            tempArr[i] = r.Next(0, 13);
         }
     }
 
