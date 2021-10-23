@@ -10,18 +10,18 @@ public class Player : MonoBehaviour
 {
     public Message message;
     public InputFieldScaler anwserInput;
-    public GameAdministrator administrator;
+    public GameControl administrator;
 
     public Button submitBtn, generateBtn;
     public Text tipsTextArea;
     public GameObject tipsContainer;
     private void Update() {
         if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
-            answer();
+            submit();
         }
     }
 
-    public void answer()
+    public void submit()
     {
         string expression = anwserInput.inputField.text;
         try

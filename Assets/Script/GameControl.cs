@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System.Text;
 
-public class GameAdministrator : MonoBehaviour {
+public class GameControl : MonoBehaviour {
 
 
     // static resource

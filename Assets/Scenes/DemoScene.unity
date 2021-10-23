@@ -1035,8 +1035,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 695015183}
-        m_TargetAssemblyTypeName: Palyer, Assembly-CSharp
-        m_MethodName: answer
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: submit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
