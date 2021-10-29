@@ -11,11 +11,14 @@ public class Player : MonoBehaviour {
     public InputFieldScaler anwserInput;
     public GameControl administrator;
 
+    public static bool isRun = false;
+
     public Button submitBtn, generateBtn;
     public Text tipsTextArea;
     public GameObject tipsContainer;
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
+        if (!isRun && Input.GetKeyDown(KeyCode.KeypadEnter)) {
+            isRun = true;
             submit();
         }
     }
@@ -33,8 +36,8 @@ public class Player : MonoBehaviour {
             }
         } catch (Exception e) {
             //Debug.Log(e.StackTrace);
-            if (e.Message.Length != 0)
-                message.showWarning(e.Message);
+            if (e.Message.StartsWith("#"))
+                message.showWarning(e.Message.Substring(1));
             else
                 message.showWarning("请输入合法的表达式！");
         }

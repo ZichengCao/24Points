@@ -11,7 +11,7 @@ public class Message : MonoBehaviour {
     public Button submitBtn;
 
     private float anminationDuration = 1.5f;
-    private float waitDuration = 2f;
+    private float waitDuration = 1f;
 
 
     public void showWarning(string text) {
@@ -35,5 +35,6 @@ public class Message : MonoBehaviour {
         yield return new WaitForSeconds(waitDuration);
         messageText.gameObject.SetActive(false);
         submitBtn.interactable = true;
+        Player.isRun = false;
     }
 }

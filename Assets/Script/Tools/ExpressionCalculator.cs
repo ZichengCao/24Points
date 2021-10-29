@@ -35,7 +35,7 @@ public class ExpressionCalculator
     {
         if (c >= '0' && c <= '9') return false;
         else if (c == '+' || c == '-' || c == '*' || c == '/' || c == '(' || c == ')') return true;
-        else throw new Exception("表达式非法");
+        else throw new Exception("#表达式非法");
     }
     private List<string> GenerateRPN(string str)
     {
@@ -80,11 +80,11 @@ public class ExpressionCalculator
 
                 if (!nums.ContainsKey(int.Parse(temp)))
                 {
-                    throw new Exception("请使用给定数字");
+                    throw new Exception("#请使用给定数字");
                 }
                 else if (--nums[int.Parse(temp)] == -1)
                 {
-                    throw new Exception("每个数字只允许使用一次");
+                    throw new Exception("#每个数字只允许使用一次");
                 }
                 RPN.Add(temp);
             }
