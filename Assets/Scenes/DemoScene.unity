@@ -1230,6 +1230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageText: {fileID: 1957157475}
   messageRectTrans: {fileID: 1957157474}
+  submitBtn: {fileID: 526835535}
 --- !u!82 &695015185
 AudioSource:
   m_ObjectHideFlags: 0

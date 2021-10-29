@@ -6,8 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     public Message message;
     public InputFieldScaler anwserInput;
     public GameControl administrator;
@@ -21,29 +20,26 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void submit()
-    {
+    public void submit() {
         string expression = anwserInput.inputField.text;
-        try
-        {
+        expression = expression.Replace('（', '(');
+        expression = expression.Replace('）', ')');
+        try {
             bool result = administrator.checkAnswer(expression);
-            if (result)
-            {
+            if (result) {
                 message.showTips("恭喜你，答对了！");
-            }
-            else
-            {
+            } else {
                 message.showWarning("很遗憾，答错了！");
             }
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e.StackTrace);
-            message.showWarning("请输入合法的表达式！");
+        } catch (Exception e) {
+            //Debug.Log(e.StackTrace);
+            if (e.Message.Length != 0)
+                message.showWarning(e.Message);
+            else
+                message.showWarning("请输入合法的表达式！");
         }
     }
-    public void showAnswerArea()
-    {
+    public void showAnswerArea() {
         QuestionAnswerer answerer = new QuestionAnswerer();
 
         submitBtn.interactable = false;
