@@ -10,7 +10,9 @@
 
 系统界面：
 
-<img src="\.screenshots\1.png" style="zoom: 60%;" />
+![.screenshots/1.png](.screenshots/1.png)
 
-<img src="\.screenshots\2.png" style="zoom: 60%;" />
+
+
+![.screenshots/2.png](.screenshots/2.png)
 
