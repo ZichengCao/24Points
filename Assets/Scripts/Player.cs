@@ -17,9 +17,14 @@ public class Player : MonoBehaviour {
     public Text tipsTextArea;
     public GameObject tipsContainer;
     private void Update() {
-        if (!isRun && Input.GetKeyDown(KeyCode.KeypadEnter)) {
+        // 右回车，左回车
+        if (!isRun && (Input.GetKeyDown(KeyCode.KeypadEnter)|| Input.GetKeyDown(KeyCode.Return))) {
             isRun = true;
             submit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
         }
     }
 
@@ -42,25 +47,26 @@ public class Player : MonoBehaviour {
                 message.showWarning("请输入合法的表达式！");
         }
     }
+
+    bool tipFlag = false;
     public void showAnswerArea() {
-        QuestionAnswerer answerer = new QuestionAnswerer();
-
-        submitBtn.interactable = false;
-        generateBtn.interactable = false;
-        List<string> ansList = answerer.run(administrator.selectNums);
-        tipsContainer.SetActive(true);
-        StringBuilder sb = new StringBuilder();
-        foreach (string ss in ansList) {
-            sb.Append(ss + "\n");
+        if (!tipFlag) {
+            QuestionAnswerer answerer = new QuestionAnswerer();
+            submitBtn.interactable = false;
+            generateBtn.interactable = false;
+            List<string> ansList = answerer.run(administrator.selectNums);
+            tipsContainer.SetActive(true);
+            StringBuilder sb = new StringBuilder();
+            foreach (string ss in ansList) {
+                sb.Append(ss + "\n");
+            }
+            tipsTextArea.text = sb.ToString();
+        } else {
+            tipsTextArea.text = "";
+            submitBtn.interactable = true;
+            generateBtn.interactable = true;
+            tipsContainer.SetActive(false);
         }
-        tipsTextArea.text = sb.ToString();
-    }
-
-
-    public void closeAnswerArea() {
-        tipsTextArea.text = "";
-        submitBtn.interactable = true;
-        generateBtn.interactable = true;
-        tipsContainer.SetActive(false);
+        tipFlag = !tipFlag;
     }
 }

@@ -53,27 +53,16 @@
     <UnityVersion>2020.3.19f1c2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Tools\Tools.cs" />
-    <Compile Include="Assets\Script\Unity3D\sdk\AbstractDumper.cs" />
-    <Compile Include="Assets\Script\Unity3D\TcpClientState.cs" />
-    <Compile Include="Assets\Script\Tools\InputFieldScaler.cs" />
-    <Compile Include="Assets\Script\Unity3D\UnityDumper.cs" />
-    <Compile Include="Assets\Script\GameControl.cs" />
-    <Compile Include="Assets\Script\Unity3D\sdk\AbstractNode.cs" />
-    <Compile Include="Assets\Script\Unity3D\PocoManager.cs" />
-    <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\Unity3D\ConcurrentDictionary.cs" />
-    <Compile Include="Assets\Script\Tools\Message.cs" />
-    <Compile Include="Assets\Script\Unity3D\TcpDatagramReceivedEventArgs.cs" />
+    <Compile Include="Assets\Scripts\Tools\Tools.cs" />
+    <Compile Include="Assets\Scripts\Tools\InputFieldScaler.cs" />
+    <Compile Include="Assets\Scripts\GameControl.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Tools\Message.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Plug-in\DoTween\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
-    <Compile Include="Assets\Script\Unity3D\TcpClientConnectedEventArgs.cs" />
-    <Compile Include="Assets\Script\Unity3D\TcpClientDisconnectedEventArgs.cs" />
-    <Compile Include="Assets\Script\Unity3D\TcpServer.cs" />
-    <Compile Include="Assets\Script\Tools\ExpressionCalculator.cs" />
-    <Compile Include="Assets\Script\Tools\QuestionAnswerer.cs" />
-    <Compile Include="Assets\Script\Unity3D\ugui\UnityNode.cs" />
-    <Compile Include="Assets\Script\Unity3D\VRSupport.cs" />
-    <Compile Include="Assets\Script\Tools\QuestionGenerator.cs" />
+    <Compile Include="Assets\Scripts\Tools\ExpressionCalculator.cs" />
+    <Compile Include="Assets\Scripts\Tools\QuestionAnswerer.cs" />
+    <Compile Include="Assets\Scripts\Tools\QuestionGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plug-in\DoTween\Demigiant\DOTween\DOTween43.xml" />
@@ -89,10 +78,8 @@
     <None Include="Assets\Plug-in\DoTween\Demigiant\DOTweenPro\DOTweenPro.dll" />
     <None Include="Assets\Plug-in\DoTween\Demigiant\DOTweenPro\readme.txt" />
     <None Include="Assets\Plug-in\DoTween\Demigiant\DOTweenPro\DOTweenPro.XML" />
-    <None Include="Assets\Script\Unity3D\3rdLib\link.xml" />
     <None Include="Assets\Plug-in\DoTween\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Plug-in\DoTween\Demigiant\DOTween\DOTween50.dll" />
-    <None Include="Assets\Script\Unity3D\3rdLib\Newtonsoft.Json.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -319,9 +306,6 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>E:\Program Files\Unity\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets\Script\Unity3D\3rdLib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\Plug-in\DoTween\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>

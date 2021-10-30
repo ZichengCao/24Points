@@ -257,8 +257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.14e-13, y: -238}
-  m_SizeDelta: {x: 400.92, y: 165.65}
+  m_AnchoredPosition: {x: 4.82, y: -238}
+  m_SizeDelta: {x: 769.15, y: 165.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &74813203
 MonoBehaviour:
@@ -283,17 +283,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u6E38\u620F\u89C4\u5219\n\u4ECE\u4E0D\u5305\u542B\u5927\u5C0F\u738B\u768452\u5F20\u6251\u514B\u724C\u4E2D\u968F\u673A\u9009\u53D6\u56DB\u5F20\uFF0C\u4F7F\u7528\u52A0\u51CF\u4E58\u9664\u4EE5\u53CA\u62EC\u53F7\uFF0C\u5C06\u56DB\u5F20\u724C\u8BA1\u7B97\u621024\uFF0C\u6BCF\u5F20\u724C\u5FC5\u987B\u4F7F\u7528\u4E14\u53EA\u80FD\u7528\u4E00\u6B21\u3002\u7EA6\u5B9AA\u4EE3\u88681\uFF0CJ\u4EE3\u886811\uFF0CQ\u4EE3\u886812\uFF0CK\u4EE3\u886813\u3002"
+    m_LineSpacing: 1.2
+  m_Text: "\u4ECE\u4E0D\u5305\u542B\u5927\u5C0F\u738B\u768452\u5F20\u6251\u514B\u724C\u4E2D\u968F\u673A\u9009\u53D6\u56DB\u5F20\uFF0C\u4F7F\u7528\u52A0\u51CF\u4E58\u9664\u4EE5\u53CA\u62EC\u53F7\uFF0C\u5C06\u56DB\u5F20\u724C\u8BA1\u7B97\u621024\uFF0C\u6BCF\u5F20\u724C\u5FC5\u987B\u4F7F\u7528\u4E14\u53EA\u80FD\u7528\u4E00\u6B21\u3002\u7EA6\u5B9AA\u4EE3\u88681\uFF0CJ\u4EE3\u886811\uFF0CQ\u4EE3\u886812\uFF0CK\u4EE3\u886813\u3002"
 --- !u!222 &74813204
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 598601974}
   - component: {fileID: 598601973}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ScriptContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -961,13 +961,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 598601973}
-        m_TargetAssemblyTypeName: Skip, Assembly-CSharp
-        m_MethodName: skip
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1080,7 +1080,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BEGIN
+  m_Text: START
 --- !u!222 &1611594486
 CanvasRenderer:
   m_ObjectHideFlags: 0

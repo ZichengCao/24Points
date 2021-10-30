@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using System.Text;
+
 
 public class GameControl : MonoBehaviour {
 
@@ -19,12 +19,12 @@ public class GameControl : MonoBehaviour {
 
     // dynamic gameobject
     public Image soundImage;
-
+    public InputFieldScaler anwserInput;
     public GameObject cardContainer;
     public RectTransform[] buttonsRect;
     private Image[] cards = new Image[4]; //selected card
     public Player player;
-
+    public Image imgClearAnwser;
     // ordinary
     public int[] selectNums = new int[4];
 
@@ -36,7 +36,16 @@ public class GameControl : MonoBehaviour {
         generateQuestion();
     }
 
+    private void Update() {
+        if (anwserInput.inputField.text.Length == 0) {
+            imgClearAnwser.enabled = false;
+        } else {
+            imgClearAnwser.enabled = true;
+        }
+    }
+
     public void generateQuestion() {
+        clearAnswer();
         // 如果界面上已存在扑克牌，删除
         for (int i = 0; i < cards.Length; i++) {
             if (cards[i] != null && cards[i].gameObject != null) {
@@ -52,14 +61,16 @@ public class GameControl : MonoBehaviour {
         }
     }
 
-
-
     public bool checkAnswer(string expression) {
         ExpressionCalculator helper = new ExpressionCalculator();
         int result = helper.calc(expression, selectNums);
         if (result == 24)
             return true;
         else return false;
+    }
+
+    public void clearAnswer() {
+        anwserInput.inputField.text = "";
     }
 
     bool muteFlag = false;
@@ -82,4 +93,7 @@ public class GameControl : MonoBehaviour {
         buttonsRect[sign].DOScale(new Vector3(1f, 1f, 1f), 0.25f);
 
     }
+
+
+
 }
