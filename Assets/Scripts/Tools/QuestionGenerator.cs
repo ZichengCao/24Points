@@ -9,13 +9,10 @@ public class QuestionGenerator {
     System.Random r = new System.Random();
 
     public List<int> build() {
-        int cnt = 0;
         do {
             selectNums();
-            cnt++;
         } while (flag[tempArr[0] + 1, tempArr[1] + 1, tempArr[2] + 1, tempArr[3] + 1] == 0);
         return new List<int>(tempArr);
-        //return new List<int> { 3, 3, 6, 6 };
     }
     private void selectNums() {
         for (int i = 0; i < 4; i++) {

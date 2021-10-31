@@ -9,7 +9,6 @@ public class GameControl : MonoBehaviour {
 
 
     // static resource
-    public Sprite[] soundSprite;
     public Sprite[] palyingCardClubSprite;
     public Sprite[] palyingCardDiamondSprite;
     public Sprite[] palyingCardHeartSprite;
@@ -18,7 +17,6 @@ public class GameControl : MonoBehaviour {
     public List<Sprite[]> playingCardSpriteList = new List<Sprite[]>();
 
     // dynamic gameobject
-    public Image soundImage;
     public InputFieldScaler anwserInput;
     public GameObject cardContainer;
     public RectTransform[] buttonsRect;
@@ -73,18 +71,6 @@ public class GameControl : MonoBehaviour {
         anwserInput.inputField.text = "";
     }
 
-    bool muteFlag = false;
-    public void soundSwitch() {
-        if (muteFlag) {
-            soundImage.sprite = soundSprite[0];
-            GetComponent<AudioSource>().volume = 0.5f;
-        } else {
-            soundImage.sprite = soundSprite[1];
-            GetComponent<AudioSource>().volume = 0f;
-        }
-        muteFlag = !muteFlag;
-    }
-
     public void buttonMouseIn(int sign) {
         buttonsRect[sign].DOScale(new Vector3(1.1f, 1.1f, 1f), 0.25f);
     }
@@ -93,7 +79,5 @@ public class GameControl : MonoBehaviour {
         buttonsRect[sign].DOScale(new Vector3(1f, 1f, 1f), 0.25f);
 
     }
-
-
 
 }
