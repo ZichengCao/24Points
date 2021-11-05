@@ -12,13 +12,14 @@ public class Player : MonoBehaviour {
     public GameControl administrator;
 
     public static bool isRun = false;
+    System.Random rd = new System.Random();
 
-    public Button submitBtn, generateBtn;
+    public Button submitBtn, generateBtn, btn_getAnAnswer, btn_getAllAnswer;
     public Text tipsTextArea;
     public GameObject tipsContainer;
     private void Update() {
         // 右回车，左回车
-        if (!isRun && (Input.GetKeyDown(KeyCode.KeypadEnter)|| Input.GetKeyDown(KeyCode.Return))) {
+        if (!isRun && (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))) {
             isRun = true;
             submit();
         }
@@ -28,10 +29,14 @@ public class Player : MonoBehaviour {
         }
     }
 
+    string[] replaceInvalid = { "（", "）", "A", "a", "J", "j", "Q", "q", "K", "k" };
+    string[] replaceVaild = { "(", ")", "1", "1", "11", "11", "12", "12", "13", "13" };
+
     public void submit() {
         string expression = anwserInput.inputField.text;
-        expression = expression.Replace('（', '(');
-        expression = expression.Replace('）', ')');
+        for (int i = 0; i < replaceInvalid.Length; i++) {
+            expression = expression.Replace(replaceInvalid[i], replaceVaild[i]);
+        }
         try {
             bool result = administrator.checkAnswer(expression);
             if (result) {
@@ -54,6 +59,8 @@ public class Player : MonoBehaviour {
             QuestionAnswerer answerer = new QuestionAnswerer();
             submitBtn.interactable = false;
             generateBtn.interactable = false;
+            btn_getAnAnswer.interactable = false;
+            btn_getAllAnswer.GetComponentInChildren<Text>().text = "close tips";
             List<string> ansList = answerer.run(administrator.selectNums);
             tipsContainer.SetActive(true);
             StringBuilder sb = new StringBuilder();
@@ -65,8 +72,16 @@ public class Player : MonoBehaviour {
             tipsTextArea.text = "";
             submitBtn.interactable = true;
             generateBtn.interactable = true;
+            btn_getAnAnswer.interactable = true;
+            btn_getAllAnswer.GetComponentInChildren<Text>().text = "show all answer";
             tipsContainer.SetActive(false);
         }
         tipFlag = !tipFlag;
+    }
+
+    public void getAnAnswer() {
+        QuestionAnswerer answerer = new QuestionAnswerer();
+        List<string> ansList = answerer.run(administrator.selectNums);
+        anwserInput.inputField.text = ansList[rd.Next(0, ansList.Count)];
     }
 }
