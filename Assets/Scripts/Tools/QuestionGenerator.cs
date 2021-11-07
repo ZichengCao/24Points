@@ -9,10 +9,10 @@ public class QuestionGenerator {
     System.Random r = new System.Random();
 
     public List<int> build() {
-        //tempArr[0] = 4; tempArr[0]--;
-        //tempArr[1] = 6; tempArr[1]--;
-        //tempArr[2] = 9; tempArr[2]--;
-        //tempArr[3] = 9; tempArr[3]--;
+        //tempArr[0] = 3; tempArr[0]--;
+        //tempArr[1] = 8; tempArr[1]--;
+        //tempArr[2] = 10; tempArr[2]--;
+        //tempArr[3] = 10; tempArr[3]--;
 
         do {
             selectNums();

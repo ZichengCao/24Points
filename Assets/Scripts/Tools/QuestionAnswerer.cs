@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class QuestionAnswerer {
     private static char[] opreators = { '+', '-', '*', '/' };
-    // 中缀表达式转后缀表达式，运算符的相对次序会变化，如 A  op1 (B op2 (C op3 D)) => ABCD op3 op2 op1
-    private static int[][] operatorOrder = new int[5][] { new int[] { 0, 1, 2 }, new int[] { 1, 0, 2 }, new int[] { 2, 1, 0 }, new int[] { 1, 2, 0 }, new int[] { 0, 2, 1 } };
+    // 中缀表达式转后缀表达式，运算符的相对次序会变化，如 A  op1 (B op2 (C op3 D)) => ABCD op3 op2 op1，此数组为了从后缀表达式转回中缀表达式
+    private static int[][] operatorOrder = new int[5][] { new int[] { 0, 1, 2 }, new int[] { 1, 0, 2 }, new int[] { 2, 1, 0 }, new int[] { 2, 0, 1 }, new int[] { 0, 2, 1 } };
     private static string[] patternStringPrefix = {
             "(({0} # {1}) # {2}) # {3}",
             "({0} # ({1} # {2})) # {3}",
@@ -73,17 +73,13 @@ public class QuestionAnswerer {
         foreach (char op1 in opreators) {
             foreach (char op2 in opreators) {
                 foreach (char op3 in opreators) {
+                    
                     string expression = string.Format(stringSuffix, op1, op2, op3);
-                    try {
-                        float ans = calcRPN(expression);
-                        char[] op = new char[3] { op1, op2, op3 };
-                        if (Math.Abs(ans - 24) < 0.0001f) {
-                            ansList.Add(string.Format(stringPrefix, op[operatorOrder[k][0]], op[operatorOrder[k][1]], op[operatorOrder[k][2]]));
-                        }
-                    } catch (Exception e) {
-                        // do nothing
+                    float ans = calcRPN(expression);
+                    char[] op = new char[3] { op1, op2, op3 };
+                    if (Math.Abs(ans - 24) < 0.0000001f) {
+                        ansList.Add(string.Format(stringPrefix, op[operatorOrder[k][0]], op[operatorOrder[k][1]], op[operatorOrder[k][2]]));
                     }
-
                 }
             }
         }
