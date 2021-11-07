@@ -61,8 +61,8 @@ public class GameControl : MonoBehaviour {
 
     public bool checkAnswer(string expression) {
         ExpressionCalculator helper = new ExpressionCalculator();
-        int result = helper.calc(expression, selectNums);
-        if (result == 24)
+        float result = helper.calc(expression, selectNums);
+        if (Mathf.Abs(result - 24) < 0.0001f)
             return true;
         else return false;
     }

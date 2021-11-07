@@ -95,7 +95,7 @@ public class ExpressionCalculator
         }
         return RPN;
     }
-    private int calc(int a, int b, char c)
+    private float calc(float a, float b, char c)
     {
         switch (c)
         {
@@ -112,7 +112,7 @@ public class ExpressionCalculator
         }
     }
 
-    public int calc(string expression, int[] selectNums)
+    public float calc(string expression, int[] selectNums)
     {
         nums.Clear();
         for (int i = 0; i < 4; i++)
@@ -129,20 +129,20 @@ public class ExpressionCalculator
         }
 
         List<string> RPN = GenerateRPN(expression);
-        Stack<int> num = new Stack<int>();
+        Stack<float> num = new Stack<float>();
         for (int i = 0; i < RPN.Count; i++)
         {
             string s = RPN[i];
             if (IsOperator(s[0]))
             {
-                int a = num.Pop();
-                int b = num.Pop();
-                int res = calc(b, a, s[0]);
+                float a = num.Pop();
+                float b = num.Pop();
+                float res = calc(b, a, s[0]);
                 num.Push(res);
             }
             else
             {
-                num.Push(int.Parse(s));
+                num.Push(float.Parse(s));
             }
         }
         return num.Peek();

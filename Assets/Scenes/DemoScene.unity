@@ -3228,7 +3228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: show all answer
+  m_Text: show all answers
 --- !u!222 &1890661536
 CanvasRenderer:
   m_ObjectHideFlags: 0

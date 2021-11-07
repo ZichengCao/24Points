@@ -29,7 +29,7 @@ public class Message : MonoBehaviour {
         messageText.DOColor(textColor, anminationDuration);
         float originPosY = messageRectTrans.anchoredPosition.y;
         messageRectTrans.DOAnchorPosY(originPosY + 30, anminationDuration);
-        yield return new WaitForSeconds(waitDuration);
+        yield return new WaitForSeconds(anminationDuration + waitDuration);
         messageText.DOFade(0, anminationDuration);
         messageRectTrans.DOAnchorPosY(originPosY, anminationDuration);
         yield return new WaitForSeconds(waitDuration);

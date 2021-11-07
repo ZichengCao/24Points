@@ -29,8 +29,8 @@ public class Player : MonoBehaviour {
         }
     }
 
-    string[] replaceInvalid = { "（", "）", "A", "a", "J", "j", "Q", "q", "K", "k" };
-    string[] replaceVaild = { "(", ")", "1", "1", "11", "11", "12", "12", "13", "13" };
+    string[] replaceInvalid = { "（", "）", "A", "a", "J", "j", "Q", "q", "K", "k", " " };
+    string[] replaceVaild = { "(", ")", "1", "1", "11", "11", "12", "12", "13", "13", "" };
 
     public void submit() {
         string expression = anwserInput.inputField.text;
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour {
             submitBtn.interactable = true;
             generateBtn.interactable = true;
             btn_getAnAnswer.interactable = true;
-            btn_getAllAnswer.GetComponentInChildren<Text>().text = "show all answer";
+            btn_getAllAnswer.GetComponentInChildren<Text>().text = "show all answers";
             tipsContainer.SetActive(false);
         }
         tipFlag = !tipFlag;
